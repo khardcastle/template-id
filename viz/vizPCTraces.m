@@ -30,7 +30,7 @@ end
 for nMarker = 1:size(data,3)
     for nFrame = 1:size(global_rotmatrix,3)
         marker = squeeze(data(nFrame, 1:2, nMarker));
-        data(nFrame, 1:2, nMarker) = squeeze(global_rotmatrix(:nFrame))*marker';
+        data(nFrame, 1:2, nMarker) = squeeze(global_rotmatrix(:,:,nFrame))*marker';
     end
 end
 
@@ -41,7 +41,6 @@ end
 [coeff, score, latent, tsquared, explained] = pca(reshape(data, size(data, 1), []));
 
 %% Build a stacked trace viewer with keypoints
-
 % Move with the LR arrow keys. increase/decrease speed with Up/Down. 
 nPCs = 5;
 close all;
