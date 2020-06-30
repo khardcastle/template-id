@@ -1,1 +1,3 @@
 # template-id
+
+identify_accel_templates is the main file. this loads a single session dataset (with hardcoded pathnames right now.. so check that), pulls out the accelerometer snippets around each behvavior label, and then aligns them. the best-aligned snippets are averaged to create an accelerometer 'template' for each behavior. templates are then cross-correlated with the signal to find all the times the animal performed this behavior. the bottom portion of the code further refines the templates, and also groups them together (using the mocap data). the plot... script will plot a template and the 10 most 'modulated' (loose def) neurons to that template
